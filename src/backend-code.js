@@ -5,44 +5,43 @@ let groceryList;
 let idLocal;
 let idCount;
 
-export function initializeBackEnd(){
-   groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-   idLocal = localStorage.getItem('id') ? JSON.parse(localStorage.getItem('id')) : 0;
-   idCount = parseInt(idLocal);
+export function initializeBackEnd() {
+  groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+  idLocal = localStorage.getItem('id') ? JSON.parse(localStorage.getItem('id')) : 0;
+  idCount = parseInt(idLocal);
 }
 
-export function getGroceryList(){
-  console.log(idCount);
+export function getGroceryList() {
   return groceryList;
 }
 
-function getItemById(id, ra){
-  for(let i = 0; i < ra.length; i++){
-    if (ra[i].id === id){
+function getItemById(id, ra) {
+  for (let i = 0; i < ra.length; i++) {
+    if (ra[i].id === id) {
       return ra[i];
     } else {
-      console.log("RA DID NOT HAVE ELEMTN WITH THAT ID");
+      console.log("RA DID NOT HAVE ELEMENT WITH THAT ID");
     }
   }
 }
 
-export function addItem(name, category){
-  groceryList.push({name:`${name}`,id:`${idCount}`,category:`${category}`,strikethrough:false});
+export function addItem(name, category) {
+  groceryList.push({ name: `${name}`, id: `${idCount}`, category: `${category}`, strikethrough: false });
   localStorage.setItem('items', JSON.stringify(groceryList));
   idCount++;
   localStorage.setItem('id', JSON.stringify(idCount));
 }
 
-export function editItem(name, id, category){
+export function editItem(name, id, category) {
   getItemById(id, groceryList).name = name;
-  if (category){
+  if (category) {
     getItemById(id, groceryList).category = category;
   }
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
-export function strikeItem(id){
-  if(getItemById(id, groceryList).strikethrough === false){
+export function strikeItem(id) {
+  if (getItemById(id, groceryList).strikethrough === false) {
     getItemById(id, groceryList).strikethrough = true;
   } else {
     getItemById(id, groceryList).strikethrough = false;
@@ -50,12 +49,12 @@ export function strikeItem(id){
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
-export function deleteItem(id){
+export function deleteItem(id) {
   groceryList.splice(groceryList.indexOf(getItemById(id, groceryList)), 1);
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
-export function clearList(){
+export function clearList() {
   localStorage.clear();
   initializeBackEnd();
 }
@@ -65,8 +64,8 @@ export function getUsersAWS(userName) {
     .then(response => {
       console.log(response);
       let userFound = false;
-      for(let i = 0; i < response.data.length; i++){
-        if(response.data[i].userName === userName){
+      for (let i = 0; i < response.data.length; i++) {
+        if (response.data[i].userName === userName) {
           localStorage.clear();
           groceryList = response.data[i].groceryList;
           localStorage.setItem('items', JSON.stringify(groceryList));
@@ -84,17 +83,17 @@ export function getUsersAWS(userName) {
 }
 
 export function addUserAWS(userName) {
-    try {
-      const params = {
-        "userName": userName,
-        "groceryList": groceryList
-      }
-      let downloadListLength = groceryList.length - 1;
-      idCount = parseInt(groceryList[downloadListLength].id) + 1;
-      return axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
-    } catch (err) {
-      $(".output").append(`An error occured: ${err}`);
+  try {
+    const params = {
+      "userName": userName,
+      "groceryList": groceryList
     }
+    let downloadListLength = groceryList.length - 1;
+    idCount = parseInt(groceryList[downloadListLength].id) + 1;
+    return axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params);
+  } catch (err) {
+    $(".output").append(`An error occured: ${err}`);
+  }
 }
 
 export function deleteUserAWS(userName) {
@@ -102,9 +101,8 @@ export function deleteUserAWS(userName) {
     const params = {
       "userName": userName
     }
-     return axios.delete(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+    return axios.delete(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params);
   } catch (err) {
     $(".output").append(`An error occured: ${err}`);
   }
-
 }
