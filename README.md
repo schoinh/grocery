@@ -4,13 +4,19 @@
 
 #### By **Na Hyung Choi, Holden Clark, Emerson Jordan, and Saswati Patra**
 
+## Latest Updates
+
+August 25, 2019 - New "Clear Completed" button that deletes all items that have been crossed off
+
 ## Description
 
-This grocery list app allows the user to add items by category (Produce, Proteins, Other Foods, and Non-Foods. The items then appear on the page, sectioned off by category. The name of each item on the list can be edited, and each item can be deleted from the list. A "Clear List" button clears the entire list. 
+This grocery list app allows the user to add items by category (Produce, Proteins, Other Foods, and Non-Foods. The items then appear on the page, sectioned off by category. The name of each item on the list can be edited, and each item can be deleted from the list. As an alternative to deleting an item, the user can click or tap on the name of an item to cross it out, and click or tap again to un-cross.
+
+A "Clear List" button clears the entire list. A "Clear Completed" button clears the items that have been crossed off by the user.
 
 Every change made to the list is automatically saved to the local storage of the browser, and will be preserved upon refreshing the same page.
 
-If the user wishes to save the list to the cloud, the user can input a name for the list and upload the list. The database for the app resides in a table on AWS DynamoDB. The user can then retrieve their list on any device or browser by inputting the same list name and clicking "Download."
+If the user wishes to save the list to the cloud, the user can input a name for the list and upload the list. The database for the app resides in a table on AWS DynamoDB. The user can then retrieve their list on any device or browser by inputting the same list name and clicking "Retrieve from Cloud."
 
 ### Specs
 | Spec | Input | Output |
@@ -26,7 +32,7 @@ If the user wishes to save the list to the cloud, the user can input a name for 
 
 1. Clone this repository:
     ```
-    $ git clone https://github.com/HoldenJC/categorized-grocery-list.git
+    $ git clone https://github.com/schoinh/grocery.git
     ```
 2. Install dependencies:
     ```
@@ -38,14 +44,14 @@ If the user wishes to save the list to the cloud, the user can input a name for 
     ```
 4. Open the web page (dist/index.html)
 
-* OR navigate directly to the [live Web page](http://holdenjc.github.io/categorized-grocery-list)
+* OR navigate directly to the [live Web page](http://schoinh.github.io/grocery)
 
 ## Known Bugs
 * No known bugs at this time.
 
 ## Support and contact details
 
-_If you have any questions, ideas, concerns, or would like to contribute in some way, feel free to contact HoldenJ_C@yahoo.com_
+_If you have any questions, ideas, concerns, or would like to contribute in some way, feel free to contact Na Hyung or leave a comment in this repository._
 
 ## Technologies Used
 * _AWS - Lambdas, DynamoDB, API Gateway, IAM_
