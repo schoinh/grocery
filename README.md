@@ -1,7 +1,6 @@
-# Grocery Cart
+# Grocery Cart (https://bit.ly/33YokbD)
 
 #### _A grocery list Web app with local and cloud storage capabilities using AWS, July 11, 2019_
-#### _Check it out at: https://bit.ly/33YokbD_
 
 #### By **Na Hyung Choi, Holden Clark, Emerson Jordan, and Saswati Patra**
 
