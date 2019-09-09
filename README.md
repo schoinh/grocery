@@ -6,6 +6,7 @@
 
 ## Latest Updates
 
+September 9, 2019 - Bugs found (see Known Bugs below)
 August 25, 2019 - New "Clear Completed" button that deletes all items that have been crossed off
 
 ## Description
@@ -47,7 +48,8 @@ If the user wishes to save the list to the cloud, the user can input a name for 
 * OR navigate directly to the [live Web page](http://schoinh.github.io/grocery)
 
 ## Known Bugs
-* No known bugs at this time.
+* When the list gets too long, the buttons at the bottom of the page get pushed off the page, and no scroll bar appears (desktop browsers only -- works fine on mobile browsers). Temporary workaround is to zoom out in desktop browser.
+* "Clear Completed" button only clears a few crossed-off items at a time, and having many crossed-off items results in user having to click the "Clear Completed" button multiple times for all crossed-off items to disappear.
 
 ## Support and contact details
 
@@ -55,7 +57,7 @@ _If you have any questions, ideas, concerns, or would like to contribute in some
 
 ## Technologies Used
 * _AWS - Lambdas, DynamoDB, API Gateway, IAM_
-* _Axios, Bootstrap, JavaScript, npm, webpack, Babel_
+* _Axios, Bootstrap, JavaScript, npm, webpack_
 
 ### License
 
