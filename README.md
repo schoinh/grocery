@@ -6,8 +6,8 @@
 
 ## Latest Updates
 
-September 9, 2019 - Bugs found (see Known Bugs below)
-August 25, 2019 - New "Clear Completed" button that deletes all items that have been crossed off
+* September 9, 2019 - Bugs found (see Known Bugs below)
+* August 25, 2019 - New "Clear Completed" button that deletes all items that have been crossed off
 
 ## Description
 
